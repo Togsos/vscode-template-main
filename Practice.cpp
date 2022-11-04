@@ -8,12 +8,12 @@ int main()
    int height {750};
    
 InitWindow(width, height,"Sharon's Window");
-
-while (true)
+while(WindowShouldClose() == false)
 {
-}
-
- 
+BeginDrawing();
+ClearBackground(RED);
+EndDrawing();
+} 
 }
 
 
