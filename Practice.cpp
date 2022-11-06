@@ -1,31 +1,31 @@
 #include "raylib.h"
-#include <stdio.h>
+
 
 int main()
 
 {
-   const int screenWidth {800};
+   const int screenWidth {1200};
    const int screenHeight {750};
    char WindowName[] = "Plague Doctor";
    
 InitWindow(screenWidth, screenHeight, WindowName);
-  const char msg[50] = "Merrie Olde England 1349...";
-   Font font = LoadFont("resources/custom_alagard.png");   
-   Vector2 fontPosition = { screenWidth/2.0f - MeasureTextEx
-   (font, msg, (float)font.baseSize, -3).x/2,screenHeight/2.0f - font.baseSize/2.0f - 80.0f };
+  const char msg[] = "Merrie Olde England 1349...";
+   Font font = LoadFont("resources/fonts/alagard.png");   
+   Vector2 fontPosition = { screenWidth/4.0f - MeasureTextEx
+   (font, msg, (float)font.baseSize*2.0f, 10).x/10,screenHeight/4.0f - font.baseSize};
 
 SetTargetFPS(60);
 
-while(WindowShouldClose() == false)
+while(!WindowShouldClose())
 
 {
 BeginDrawing();
    ClearBackground(WHITE);
-   DrawTextEx(font, msg, fontPosition, (float)font.baseSize, -3, RED);
+   DrawTextEx(font, msg, fontPosition, (float)font.baseSize*2.0f, 10, RED);
 EndDrawing();
 } 
 UnloadFont(font);
-
+CloseWindow();
 return 0;
 }
 
